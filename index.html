@@ -1,0 +1,165 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Qualycenter - Plataforma de Curso EAD</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      margin: 0;
+    }
+  
+    header {
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 10px;
+    }
+  
+    #sidebar {
+      background-color: #333;
+      color: #fff;
+      max-width: 200px;
+      padding: 20px;
+      box-sizing: border-box;
+      flex-shrink: 0;
+    }
+  
+    #content {
+      flex-grow: 1;
+      padding: 20px;
+      box-sizing: border-box;
+      max-width: calc(100% - 200px);
+    }
+  
+    footer {
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 10px;
+      margin-top: auto;
+    }
+  
+    button {
+      padding: 10px;
+      margin-bottom: 10px;
+      display: block;
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      width: 100%;
+    }
+  
+    button:hover {
+      background-color: #45a049;
+    }
+  
+    #videos {
+      /* Removido display: none; para que os vídeos sejam exibidos por padrão */
+    }
+  
+    iframe {
+      width: 100%;
+      height: 200px; /* Ajuste a altura conforme necessário */
+      margin-bottom: 10px;
+    }
+  
+    @media (max-width: 768px) {
+      #sidebar {
+        max-width: 100%;
+      }
+      #content {
+        max-width: 100%;
+      }
+      header, footer {
+        padding: 5px;
+      }
+      iframe {
+        height: 150px; /* Ajuste a altura conforme necessário para telas menores */
+      }
+    }
+  </style>
+  
+</head>
+<body>
+  <header>
+    <h1>Curso de Mobile Online</h1>
+  </header>
+
+  <div style="display: flex;">
+    <div id="sidebar">
+      <button onclick="showVideos('adobe')">Adobe Express</button>
+      <button onclick="showVideos('canvas')">Canva</button>
+      <button onclick="showVideos('capcut')">Capcut</button>
+      <button onclick="showVideos('crello')">Crello - Vista Create</button>
+      <button onclick="showVideos('instagram')">Instagram</button>
+      <button onclick="showVideos('lightroom')">Lightroom</button>
+      <button onclick="showVideos('photoshop')">Photoshop</button>
+      <button onclick="showVideos('tiktok')">TikTok</button>
+      <button onclick="showVideos('vivacut')">VivaCut</button>
+    </div>
+
+    <div id="content">
+      <div id="videos">
+        <!-- Vídeos serão exibidos aqui -->
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>Qualycenter</p>
+  </footer>
+
+  <script>
+    function showVideos(course) {
+      // Limpa o conteúdo de vídeos
+      document.getElementById('videos').innerHTML = '';
+
+      // Adiciona vídeos do curso selecionado
+      if (course === 'adobe') {
+        addVideo('Adobe Express - Vídeo 1', 'https://www.youtube.com/embed/6UTReGpdJnU');
+        addVideo('Adobe Express - Vídeo 2', 'https://www.youtube.com/embed/BZr5SGp9vgo');
+      } else if (course === 'canvas') {
+        addVideo('Canvas - Explicação Geral', 'https://www.youtube.com/embed/KkKUoMzKkTA');
+        addVideo('Canvas - Panfleto', 'https://www.youtube.com/embed/vFz3sPtEb0o');
+      } else if (course === 'capcut') {
+        addVideo('Capcut - Explicação Geral', 'https://www.youtube.com/embed/CTBRixltILs');
+        addVideo('Capcut - Panfleto', 'https://www.youtube.com/embed/uznu4_YXAX4');
+      } else if (course === 'crello') {
+        addVideo('Crello - Vista Create - Explicação Geral', 'https://www.youtube.com/embed/PbEloqwS9is');
+        addVideo('Crello - Vista Create', 'https://www.youtube.com/embed/UNtvm8BhhSY');
+      } else if (course === 'instagram') {
+        addVideo('Instagran - Explicação Geral', 'https://www.youtube.com/embed/-e_BY1qeyFc');
+        addVideo('Instagran', 'https://www.youtube.com/embed/Oo0Z8HUhwXo');
+      } else if (course === 'lightroom') {
+        addVideo('Lightroom - Explicação Geral', 'https://www.youtube.com/embed/SIfctlQLXxQ');
+      } else if (course === 'photoshop') {
+        addVideo('Photoshop - Explicação Geral', 'https://www.youtube.com/embed/5JzEQJ9shjs');
+      } else if (course === 'tiktok') {
+        addVideo('Tiktok - Explicação Geral', 'https://www.youtube.com/embed/VIEDD_E3WsA');
+        addVideo('Tiktok', 'https://www.youtube.com/embed/YLvQiwjhq5Y');
+      } else if (course === 'vivacut') {
+        addVideo('Vivacut - Explicação Geral', 'https://www.youtube.com/embed/4C-wFH-1FaY');
+        addVideo('Vivacut', 'https://www.youtube.com/embed/tWUmFRdVH8k');
+      }
+      // Adicione mais cursos conforme necessário
+    }
+
+    function addVideo(title, videoUrl) {
+      const videosDiv = document.getElementById('videos');
+      const iframe = document.createElement('iframe');
+      iframe.src = videoUrl;
+      iframe.title = title;
+      videosDiv.appendChild(iframe);
+    }
+  </script>
+</body>
+</html>
